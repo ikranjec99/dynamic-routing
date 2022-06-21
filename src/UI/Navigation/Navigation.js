@@ -13,7 +13,7 @@ export const Navigation = ({
   ...navProps
 }) => {
   return (
-    <div className={"navbar"}>
+    <div className={"navigation"}>
       <Sidenav
         appearance={appearance}
         expanded={expanded}

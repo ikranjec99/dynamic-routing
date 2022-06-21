@@ -2,9 +2,10 @@ import React from "react";
 import { Navigation } from "./UI/Navigation/Navigation";
 import { Router } from "./Router/Router";
 import { Routes, Route } from "react-router-dom";
+import { Container, Content, Sidebar } from "rsuite";
+import { NotFound } from "./Pages/NotFound/NotFound";
 
 import "./App.css";
-import { Container, Content, Sidebar } from "rsuite";
 
 export const App = () => {
   const [activeKey, setActiveKey] = React.useState("1");
@@ -36,16 +37,16 @@ export const App = () => {
                 return (
                   <>
                     <Route path={x.route} element={x.component} />
-                    {
-                      x.children && (
+                    {x.children && (
                         <Route path={x.route} element={x.component} />
-                      ) && x.children.map((r) => {
-                        return <Route path={r.route} element={r.component} />
-                      })
-                    }
+                      ) &&
+                      x.children.map((r) => {
+                        return <Route path={r.route} element={r.component} />;
+                      })}
                   </>
-                )
+                );
               })}
+              <Route path={'*'} element={<NotFound />} />
             </Routes>
           </Content>
         </Container>

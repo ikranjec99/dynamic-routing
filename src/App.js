@@ -21,7 +21,11 @@ export const App = () => {
     <>
       <div>
         <Container>
-          <Sidebar>
+          <Sidebar
+            style={{ display: "flex", flexDirection: "column" }}
+            width={expanded ? 260 : 56}
+            collapsible
+          >
             <Navigation
               activeKey={activeKey}
               openKeys={openKeys}
@@ -33,16 +37,14 @@ export const App = () => {
           </Sidebar>
           <Content>
             <Routes>
-              {
-                extractRoutes.map((x) => {
-                  return (
-                    <>
-                      <Route path={x.route} element={x.component} />
-                    </>
-                  )
-                })
-              }
-              <Route path={'*'} element={<NotFound />} />
+              {extractRoutes.map((x) => {
+                return (
+                  <>
+                    <Route path={x.route} element={x.component} />
+                  </>
+                );
+              })}
+              <Route path={"*"} element={<NotFound />} />
             </Routes>
           </Content>
         </Container>

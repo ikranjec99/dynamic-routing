@@ -33,19 +33,15 @@ export const App = () => {
           </Sidebar>
           <Content>
             <Routes>
-              {Router.map((x) => {
-                return (
-                  <>
-                    <Route path={x.route} element={x.component} />
-                    {x.children && (
-                        <Route path={x.route} element={x.component} />
-                      ) &&
-                      x.children.map((r) => {
-                        return <Route path={r.route} element={r.component} />;
-                      })}
-                  </>
-                );
-              })}
+              {
+                extractRoutes.map((x) => {
+                  return (
+                    <>
+                      <Route path={x.route} element={x.component} />
+                    </>
+                  )
+                })
+              }
               <Route path={'*'} element={<NotFound />} />
             </Routes>
           </Content>

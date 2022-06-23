@@ -22,7 +22,7 @@ export const App = () => {
       <div>
         <Container>
           <Sidebar
-            style={{ display: "flex", flexDirection: "column" }}
+            className={'sidebar'}
             width={expanded ? 260 : 56}
             collapsible
           >

@@ -8,8 +8,6 @@ import { NotFound } from "./Pages/NotFound/NotFound";
 import "./App.css";
 
 export const App = () => {
-  const [activeKey, setActiveKey] = React.useState("1");
-  const [openKeys, setOpenKeys] = React.useState(["3", "4"]);
   const [expanded, setExpand] = React.useState(true);
   const extractRoutes = Router.filter((r) => r.title).concat(
     Router.filter((r) => r.children && r.children.length)
@@ -27,10 +25,6 @@ export const App = () => {
             collapsible
           >
             <Navigation
-              activeKey={activeKey}
-              openKeys={openKeys}
-              onSelect={setActiveKey}
-              onOpenChange={setOpenKeys}
               expanded={expanded}
               onExpand={setExpand}
             />

@@ -6,7 +6,6 @@ import { NavigationItem } from "./NavigationItem/NavigationItem";
 
 export const Navigation = ({
   appearance,
-  openKeys,
   expanded,
   onOpenChange,
   onExpand,
@@ -17,7 +16,6 @@ export const Navigation = ({
       <Sidenav
         appearance={appearance}
         expanded={expanded}
-        openKeys={openKeys}
         onOpenChange={onOpenChange}
       >
         <Sidenav.Body>

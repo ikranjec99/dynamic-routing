@@ -9,7 +9,7 @@ import "./App.css";
 
 export const App = () => {
   const [expanded, setExpand] = React.useState(true);
-  const extractRoutes = Router.filter((r) => r.title).concat(
+  const routes = Router.filter((r) => r.title).concat(
     Router.filter((r) => r.children && r.children.length)
       .map((r) => r.children)
       .flat()
@@ -31,7 +31,7 @@ export const App = () => {
           </Sidebar>
           <Content>
             <Routes>
-              {extractRoutes.map((x) => {
+              {routes.map((x) => {
                 return (
                   <>
                     <Route path={x.route} element={x.component} />
